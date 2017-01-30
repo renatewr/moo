@@ -1,0 +1,74 @@
+<head>
+  <meta charset="utf-8" />
+    <title> Moo </title>
+</meta>
+<link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <!--<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+  <script src="https://jspm.io/system@0.19.js"></script>
+  <script>
+    System.config({transpiler: 'babel'});
+    System.import('/main.js');
+  </script>-->  
+  <header class="header">
+    <h1 class="header__title">Kunderegister</h1>        
+  </header>
+  
+  <section class="container" id="new-customer-container">
+    <!-- Form for new Todo Items -->
+    <form id="new-customer-form" method="POST" action="#" enctype='application/json'>      
+      <ul class="flex-outer">                    
+      <li>
+        <label>Selskapsnavn:</label><input type="text" name="customer_name" id="customer_name" placeholder="Selskapsnavn..." required>  
+      </li>
+      <li>
+        <label>Orgno:</label><input type="number" pattern="[0-9]{9}" name="orgno" id="orgno" placeholder="Orgno..." required title="Organisasjonummer består av 9 siffer">
+      </li>
+      <li>
+        <label>Selskapstype:</label>
+        <input type="text" name="type" id="type" placeholder="Velg type organisasjon..." required list="listType">
+        <datalist id="listType">
+          <option value="Enkeltmannsforetak" />
+          <option value="Aksjeselskap" />
+          <option value="Annet" />
+        </datalist>
+      </li>
+      <li>
+        <label>Leder:</label><input type="text" name="leader_name" id="leader_name" placeholder="Ansvarlig..." required>
+      </li>
+      <li>
+        <label>Tittel:</label><input type="text" name="leader_title" id="leader_title" placeholder="Tittle..." required>
+      </li>
+      <li class="form-actions">
+        <a href='#' id="new-customer-form-close">Avbryt</a>
+        <button onclick="submit">Lagre</button>
+      </li>
+      </ul>
+       
+    </form>
+  </section>
+    <!-- Todo Item List -->
+  <section class="customer-list">
+    <ul id="customer-items">
+      <li>
+        <h5>Loading
+          <span class="dot">.</span>
+        </h5>
+      </li>
+    </ul>
+  </section>  
+  
+  <footer class="site-footer">
+    <nav class="site-nav">
+      <ul>        
+        <li id="new-customer-action">
+          <img class="img-circle img-component" src="assets/plus.svg" alt="Legg til" />        
+          <span>Ny</span>
+        </li>        
+      </ul>
+    </nav>
+  </footer>
+  <script src="./_build/bundle.js"></script>
+</body>
+</head>
